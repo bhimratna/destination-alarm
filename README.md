@@ -61,3 +61,98 @@ Start
                                   │
                                   ▼
                          🚨 ALARM TRIGGERED
+
+---
+
+## ✨ Key Features
+
+### 📍 Smart Destination Detection
+
+Set a destination and configure a custom alert radius.
+
+Supported example radii:
+
+- 500 m
+- 1 km
+- 2 km
+- 3 km
+- 5 km
+
+### 🛰️ Continuous GPS Tracking
+
+The application monitors the user's live location during an active journey
+and calculates the distance to the selected destination.
+
+### 🔔 Loud Destination Alarm
+
+When the destination radius is reached:
+
+- Alarm sound starts
+- Device vibrates
+- Full-screen alarm interface appears
+- Destination notification is displayed
+- Alarm continues until manually stopped
+
+### 🌙 Background Journey Monitoring
+
+Destination Alarm uses Android foreground-service functionality so location
+tracking can continue while the application is not actively visible.
+
+### 📱 Lock-Screen Alert
+
+The destination alert is designed to bring the alarm to the user's attention
+even when the device screen is locked.
+
+### 🎨 Modern Dark UI
+
+A modern dark interface with a premium green accent, designed for comfortable
+mobile use.
+
+---
+
+## 🧠 How It Works
+
+```text
+┌───────────────────────┐
+│  Select Destination   │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│  Select Alert Radius  │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│    Start Journey      │
+└───────────┬───────────┘
+            │
+            ▼
+┌────────────────────────────┐
+│   Foreground GPS Tracking  │
+│                            │
+│   Current Location         │
+│          ↓                 │
+│   Distance Calculation     │
+└────────────┬───────────────┘
+             │
+             ▼
+      Distance <= Radius?
+          /          \
+        NO            YES
+        │              │
+        │              ▼
+        │       ┌──────────────┐
+        │       │ Stop Tracking│
+        │       └──────┬───────┘
+        │              │
+        │              ▼
+        │       ┌──────────────┐
+        │       │ 🚨 ALARM     │
+        │       │   TRIGGERED  │
+        │       └──────┬───────┘
+        │              │
+        │              ▼
+        │       User Stops Alarm
+        │
+        └──────────────►
